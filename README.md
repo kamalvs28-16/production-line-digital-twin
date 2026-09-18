@@ -124,3 +124,28 @@ The project was developed incrementally from a production-line simulation into a
 The dashboard identifies the bottleneck stage and provides supporting production indicators such as resource utilization, waiting time, and queue behavior.
 
 ![Bottleneck Analysis](screenshot/bottleneck-analysis.png)
+## 🖥️ Dashboard Screenshots
+
+### Main Dashboard
+
+The Streamlit dashboard provides an interactive view of the simulated production line, KPIs, bottlenecks, queues, utilization, and scenario results.
+
+![Main Dashboard](screenshot/dashboard.png)
+
+### Bottleneck Intelligence
+
+The system identifies the bottleneck stage using simulation-based resource utilization and waiting behavior.
+
+![Bottleneck Analysis](screenshot/bottleneck-analysis.png)
+
+### What-If Analysis
+
+The What-If module allows users to test changes in processing time and machine capacity before applying them to the production line.
+
+![What-If Analysis](screenshot/what-if-analysis.png)
+
+### Downtime Propagation
+
+The simulation demonstrates how machine downtime can affect downstream production flow and throughput.
+
+![Downtime Analysis](screenshot/downtime-analysis.png)
