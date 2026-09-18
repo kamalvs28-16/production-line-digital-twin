@@ -116,3 +116,11 @@ The project was developed incrementally from a production-line simulation into a
 - Added dependency management using `requirements.txt`.
 - Added `.gitignore`.
 - Prepared the project for GitHub-based collaboration and evaluation.
+
+## 🖥️ Dashboard Preview
+
+### Bottleneck Intelligence
+
+The dashboard identifies the bottleneck stage and provides supporting production indicators such as resource utilization, waiting time, and queue behavior.
+
+![Bottleneck Analysis](screenshot/bottleneck-analysis.png)
