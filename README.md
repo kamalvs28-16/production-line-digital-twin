@@ -149,3 +149,62 @@ The What-If module allows users to test changes in processing time and machine c
 The simulation demonstrates how machine downtime can affect downstream production flow and throughput.
 
 ![Downtime Analysis](screenshot/downtime-analysis.png)
+
+##features
+✓ Production simulation
+✓ Bottleneck detection
+✓ Resource utilization
+✓ Queue analysis
+✓ Waiting-time analysis
+✓ Downtime propagation
+✓ What-If simulation
+✓ Decision support
+✓ Interactive Streamlit dashboard
+
+##technology stack
+Python
+SimPy
+NumPy
+Pandas
+Plotly
+Streamlit
+Git/GitHub
+
+##architecture
+User
+ ↓
+Streamlit Dashboard
+ ↓
+What-If Parameters
+ ↓
+SimPy Digital Twin
+ ↓
+Production Line
+ ↓
+Event Data
+ ↓
+Analytics
+ ↓
+Decision Support
+ ↓
+Dashboard
+
+## ⚠️ Current Limitations
+
+- The prototype uses simulated production data.
+- The production line model is simplified.
+- Machine downtime behavior is simplified.
+- Bottleneck identification is primarily based on simulated resource utilization with waiting behavior as a supporting indicator.
+- The current decision-support module uses rule-based logic rather than a trained machine-learning model.
+- The prototype is not connected to live PLC, SCADA, MES, or IoT systems.s
+
+## 🚀 Future Scope
+
+- Integration with PLC and SCADA systems
+- Integration with MES and IoT sensors
+- Historical production database
+- Machine-learning based processing-time prediction
+- Predictive maintenance
+- Demand forecasting
+- Real-time digital-twin synchronization
+- Advanced optimization of machine allocation

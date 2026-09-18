@@ -1,27 +1,18 @@
-# Virtual environment
-venv/
-.venv/
-env/
-
-# Python cache
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Streamlit
-.streamlit/
+# Virtual environment
+venv/
+.venv/
 
 # IDE
 .vscode/
 
-# Backup files
-*_backup.py
-*.bak
+# Streamlit
+.streamlit/secrets.toml
 
-# OS files
+# OS
 .DS_Store
 Thumbs.db
-
-# Temporary files
-*.tmp
-*.log

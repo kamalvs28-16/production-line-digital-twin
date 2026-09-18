@@ -861,23 +861,84 @@ st.plotly_chart(
 
 st.subheader("🔎 Bottleneck Intelligence")
 
-st.info(
-    f"""
-### Detected Bottleneck: **{bottleneck}**
+bottleneck_stage = scenario_kpis.get("bottleneck", "Unknown")
 
-**Utilization:** {bottleneck_util:.1f}%
+bottleneck_row = scenario_summary[
+    scenario_summary["stage"] == bottleneck_stage
+]
 
-**Average Waiting Time:** {bottleneck_scenario_wait:.2f} minutes
+if not bottleneck_row.empty:
 
-**Average Queue Length:** {bottleneck_queue:.2f} units
+    bottleneck_utilization = float(
+        bottleneck_row["utilization_pct"].iloc[0]
+    )
 
-**Total Stage Time:** {bottleneck_scenario_total:.2f} minutes
+    bottleneck_waiting = float(
+        bottleneck_row["avg_waiting_time_min"].iloc[0]
+    )
 
-**Waiting Difference:** {bottleneck_wait_difference:+.2f} minutes
+    bottleneck_queue = float(
+        bottleneck_row["avg_queue_length"].iloc[0]
+    )
 
-**Total Time Difference:** {bottleneck_total_difference:+.2f} minutes
-"""
-)
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.metric(
+            "Bottleneck Stage",
+            bottleneck_stage
+        )
+
+    with col2:
+        st.metric(
+            "Utilization",
+            f"{bottleneck_utilization:.1f}%"
+        )
+
+    with col3:
+        st.metric(
+            "Average Waiting",
+            f"{bottleneck_waiting:.2f} min"
+        )
+
+    st.write(
+        f"**Why {bottleneck_stage} is identified as the bottleneck:**"
+    )
+
+    reasons = []
+
+    if bottleneck_utilization >= 80:
+        reasons.append(
+            f"High resource utilization ({bottleneck_utilization:.1f}%)"
+        )
+
+    if bottleneck_waiting > 0:
+        reasons.append(
+            f"Products experience waiting at this stage "
+            f"({bottleneck_waiting:.2f} min average)"
+        )
+
+    if bottleneck_queue > 0:
+        reasons.append(
+            f"Queue buildup is observed "
+            f"(average queue: {bottleneck_queue:.2f} units)"
+        )
+
+    if reasons:
+        for reason in reasons:
+            st.write(f"• {reason}")
+    else:
+        st.write(
+            "• The stage has the strongest bottleneck indicators "
+            "among the simulated production stages."
+        )
+
+    st.info(
+        f"The bottleneck can restrict the flow of products through "
+        f"the production line. Improving capacity or reducing processing "
+        f"time at {bottleneck_stage} can be evaluated using the What-If "
+        f"simulation."
+    )
 
 
 # ============================================================
