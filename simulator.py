@@ -14,6 +14,18 @@ def run_simulation(
     seed=42,
 ):
     """
+    Run the production-line digital twin simulation.
+
+    Models:
+    - Production stages
+    - Machine capacities
+    - Processing-time variation
+    - Queues and waiting time
+    - Machine downtime
+    - Throughput
+    - Resource utilization
+    - Bottleneck identification
+ 
     Production Line Digital Twin Simulation
 
     Production flow:
@@ -22,7 +34,6 @@ def run_simulation(
     Returns:
         kpis, summary, events
     """
-
     rng = np.random.default_rng(seed)
     env = simpy.Environment()
 
